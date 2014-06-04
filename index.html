@@ -10,7 +10,7 @@
 	/* HTML Email Reset */
 	#outlook a {padding:0;}
 	body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
-	.ExternalClass {width:100%;} 
+	.ExternalClass {width:100%;}
 	.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
 	#container {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
 	img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; max-width: 600px !important;}
@@ -24,13 +24,30 @@
 	table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; table-layout: fixed; }
 	a {color: blue;}
 
-	/**
-	 * This will only work on iOS, and Windows Phone 8
-	 */
-	@media only screen and (max-width: 600px) {
-		body[yahoo] table { width: 100% !important; }
+	.mobile-only { display: none; max-height: 0; font-size: 0; overflow: hidden; }
+	.mobile-only img { max-height: 0; width: 0; }
+
+	@media only screen and (max-width: 638px), screen and (max-device-width: 638px) {
+		body[yahoo] .desktop-only { display: none !important; }
+		body[yahoo] .mobile-only { display: block !important; max-height: none !important; font-size: 12px !important; }
+		body[yahoo] .mobile-only img { max-height: none !important; width: auto !important; }
+
+		body[yahoo] table { width: 100% !important; } .small-full { width: auto !important; }
+
+		body[yahoo] img {
+			max-width: 100% !important;
+			height: auto !important;
+		}
 	}
+
+	@ms-viewport { width: device-width; }
 	</style>
+
+	<!--[if gte mso 15]>
+	<style type="text/css" media="all">
+		.o13-lh { line-height: 1 !important; }
+	</style>
+	<![endif]-->
 </head>
 <body bgcolor="#FFFFFF" style="background-color: #FFFFFF; color: #222222; font-size: 13px; font-family: Arial, sans-serif; -webkit-text-size-adjust: none;" yahoo="fix">
 
@@ -39,16 +56,28 @@
 <tr>
 	<td>
 	<!-- Content wrapper -->
-	<table width="600" cellpadding="30px" cellspacing="0" border="1" align="center" style="border-color: #DDDDDD">
+	<table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
 <!-- EDIT BELOW -->
 <!-- EDIT BELOW -->
 <!-- EDIT BELOW -->
 
 <!-- HEADER -->
 <tr><td>
-<table width="600" style="width: 630px" cellpadding="0" align="center">
+<table width="600" style="width: 600px" cellpadding="0" align="center">
 	<tr>
 		<td>
+			Header.
+		</td>
+	</tr>
+</table>
+</td></tr>
+
+<!-- CONTENT: Block 1 -->
+<tr><td>
+<table width="600" style="width: 600px" cellpadding="0" align="center">
+	<tr>
+		<td>
+			Content block 1.<br />Add as you need. Use inline styles. Follow best practices.
 		</td>
 	</tr>
 </table>
